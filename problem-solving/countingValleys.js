@@ -2,23 +2,17 @@ function countingValleys(steps, path) {
 	let valley = 0, down = 0, temp = 0;  
 	for (var i = 0; i < steps; i++) {
 		if (path.charAt(i) == 'D') { 
-			down--;
+			down--; 
 		}else{ 
-			if (temp == -1) {
-				if (down == 0) {
-					valley++;
-				}
-			}
-			if (valley >= 1) { 
-				if (down == 0) {
-					valley++;
-				}
-			}
 			down++;
+			if (temp == -1 && down == 0) {
+				valley++;
+			}
 		}
-		temp = down; 
+		// console.log(down + " ::::::::: " + valley)
+		temp = down
 	}  
-	console.log(down + " ::::::::: " + valley)
+	return valley;
 }
 countingValleys(8,"UDDDUDUU") // 1
 console.log("------------------------------------")
